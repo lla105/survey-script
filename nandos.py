@@ -47,5 +47,14 @@ else:
 # radio_button_value = radio_button['value']
 # print(radio_button_value)  # Output: option1
 
+response = requests.get(url)
+html = response.text
+soup = BeautifulSoup(html, 'html.parser')
+target_label = '10'
+for radio_button in radio_buttons:
+    if target_label in radio_button.next_sibling.strip():
+        print("Radio button value:", radio_button['value'])
+        break
+
 time.sleep(10)
 driver.quit()
