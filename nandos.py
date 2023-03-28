@@ -52,9 +52,10 @@ html = response.text
 soup = BeautifulSoup(html, 'html.parser')
 target_label = '10'
 for radio_button in radio_buttons:
-    if target_label in radio_button.next_sibling.strip():
-        print("Radio button value:", radio_button['value'])
-        break
+    print(">>>", radio_button.next_sibling.next_sibling.text.strip())
+    # if target_label in radio_button.next_sibling.strip():
+    #     print("Radio button value:", radio_button['value'])
+    #     break
 
 time.sleep(10)
 driver.quit()
