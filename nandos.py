@@ -50,9 +50,11 @@ else:
 response = requests.get(url)
 html = response.text
 soup = BeautifulSoup(html, 'html.parser')
-target_label = '10'
+target_label = ['No', 'Take Out', 'Excellent', '10']
 for radio_button in radio_buttons:
-    print(">>>", radio_button.next_sibling.next_sibling.text.strip())
+    # print(">>>", radio_button.next_sibling.next_sibling.text.strip())
+    if target_label in radio_button.next_sibling.next_sibling.text.strip() :
+        print(target_label)
     # if target_label in radio_button.next_sibling.strip():
     #     print("Radio button value:", radio_button['value'])
     #     break
